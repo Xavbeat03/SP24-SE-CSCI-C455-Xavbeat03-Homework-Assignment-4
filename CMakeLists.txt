@@ -18,9 +18,21 @@ enable_testing()
 add_executable(
         src/MaxHeap/MaxHeap.cpp
         src/PriorityQueue/PriorityQueue.h
+        src/test/MaxHeap/toString.cpp
+        src/test/MaxHeap/getSize.cpp
+        src/test/MaxHeap/getHeap_Size.cpp
+        src/test/MaxHeap/Heapsort.cpp
+        src/test/MaxHeap/Build_Max_Heap.cpp
+        src/test/MaxHeap/Max_Heapify.cpp
+        src/test/MaxHeap/insert.cpp
+        src/test/MaxHeap/remove.cpp
+        src/test/MaxHeap/retrieveAndRemoveRoot.cpp
+        src/test/MaxHeap/find.cpp
+        src/test/MaxHeap/insert.cpp
 )
 
 target_link_libraries(
-        gtest_discover_tests
+        MaxHeap.cpp
+        gtest_discover_tests(MaxHeap.cpp)
 )
 

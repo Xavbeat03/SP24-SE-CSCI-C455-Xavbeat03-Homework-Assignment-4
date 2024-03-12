@@ -40,24 +40,6 @@ public:
         return this->heap_size;
     }
 
-
-
-    /**
-     * Sets the size of the array
-     * @param s the new size of the array
-     */
-    void setSize(int s){
-        this->size = s;
-    }
-
-    /**
-     * Sets the size of the heap
-     * @param s the new size of the heap
-     */
-    void setHeap_Size(int s){
-        this->heap_size = s;
-    }
-
     /**
      * Runs heap sort on the internal array
      * returning an array in ascending order
@@ -218,6 +200,22 @@ private:
      */
     void setArray(int* s){
         this->array = s;
+    }
+
+    /**
+     * Sets the size of the array
+     * @param s the new size of the array
+     */
+    void setSize(int s){
+        this->size = s;
+    }
+
+    /**
+     * Sets the size of the heap
+     * @param s the new size of the heap
+     */
+    void setHeap_Size(int s){
+        this->heap_size = s;
     }
 };
 
