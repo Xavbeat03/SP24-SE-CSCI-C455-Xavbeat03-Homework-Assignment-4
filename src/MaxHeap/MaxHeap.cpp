@@ -1,5 +1,6 @@
 #include <iostream>
 
+#include "MaxHeap.h"
 class MaxHeap {
 public:
     /**
@@ -173,7 +174,7 @@ private:
                 s+=",";
             }
         }
-        s+="]\n";
+        s+="]";
         return s;
     }
 
@@ -219,7 +220,7 @@ private:
     }
 };
 
-
+/**
 int main() {
     int A[] = {58, 72, 19, 41, 33, 62, 84};
 
@@ -231,6 +232,7 @@ int main() {
 
     return 0;
 }
+ **/
 
 
 
