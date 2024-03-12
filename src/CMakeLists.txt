@@ -1,0 +1,8 @@
+
+add_executable(
+        SP24-SE-CSCI-C455-Xavbeat03-Homework-Assignment-4
+        main.cpp
+        MaxHeap/MaxHeap.cpp
+        PriorityQueue/PriorityQueue.cpp
+        PriorityQueue/PriorityQueue.h
+)
