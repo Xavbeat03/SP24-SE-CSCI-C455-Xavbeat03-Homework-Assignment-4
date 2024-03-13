@@ -19,6 +19,11 @@ public:
         }
     }
 
+    MaxHeap(){
+        this->size = 0;
+        this->heap_size = 0;
+    }
+
     ~MaxHeap()= default;
 
     /**
