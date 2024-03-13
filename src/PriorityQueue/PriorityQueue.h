@@ -5,6 +5,7 @@
 #include "../../src/MaxHeap/MaxHeap.cpp"
 #include "../AirportRecord/AirportRecord.h"
 
+template <typename T>
 class PriorityQueue {
 public:
 
@@ -15,19 +16,19 @@ public:
      * inserts map x into the priority queue
      * @param x the int, value map to be inserted
      */
-    void Insert(std::tuple<int, AirportRecord> x);
+    void Insert(T x);
 
     /**
      * returns a copy of the key-value tuple that has the largest key in the priority queue
      * @return a key-value pair representing the largest key in the queue
      */
-    std::tuple<int, AirportRecord> Maximum();
+    T Maximum();
 
     /**
      * removes the record from the priority queue and returns the key-value tuple that is with the largest key
      * @return a map representing the key-value map with the largest key
      */
-    std::tuple<int, AirportRecord> Extract_Max();
+    T Extract_Max();
 
     /**
      * increases the value of the key located at position 'position' in the queue; new_key is required to be greater than the key already stored at location 'position'
@@ -36,8 +37,9 @@ public:
      */
     void Increase_Key(int position, int new_key);
 private:
-    MaxHeap* maxHeap = new MaxHeap();
-    std::list<AirportRecord>* list = new std::list<AirportRecord>;
+
+    MaxHeap<T>* maxHeap = new MaxHeap<T>();
+    std::list<T>* list = new std::list<T>;
 
 };
 

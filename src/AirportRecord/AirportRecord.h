@@ -187,7 +187,7 @@ private:
             else {
 
                 // if 'word' is not an empty string,
-                // then add this 'word' to the array
+                // then add this 'word' to the vector
                 // 'substr_list[]'
                 if ((int)word.size() != 0)
                     substr_list.push_back(word);

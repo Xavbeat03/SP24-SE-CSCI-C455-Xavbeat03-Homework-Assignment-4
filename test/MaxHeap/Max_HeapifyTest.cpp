@@ -1,11 +1,13 @@
 #include <gtest/gtest.h>
 #include "../../src/MaxHeap/MaxHeap.cpp"
 
+typedef MaxHeap<int> Heap;
+
 namespace {
     TEST(Max_Heapify, Test1_EmptyHeap){
         int A[] = {};
 
-        auto heap = new MaxHeap(A, 0);
+        auto heap = new Heap(A, 0);
 
         ASSERT_THROW(heap->Max_Heapify(0), std::out_of_range);
     }
@@ -13,7 +15,7 @@ namespace {
     TEST(Max_Heapify, Test1_Size1Heap){
         int A[] = {1};
 
-        auto heap = new MaxHeap(A, 1);
+        auto heap = new Heap(A, 1);
 
         heap->Max_Heapify(0);
 
@@ -24,7 +26,7 @@ namespace {
     TEST(Max_Heapify, Test1_NormalHeap){
         int A[] = {1, 2, 3, 4, 5, };
 
-        auto heap = new MaxHeap(A, 5);
+        auto heap = new Heap(A, 5);
 
         heap->Max_Heapify(0);
 
