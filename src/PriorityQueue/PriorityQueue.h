@@ -32,15 +32,18 @@ public:
 
     /**
      * increases the value of the key located at position 'position' in the queue; new_key is required to be greater than the key already stored at location 'position'
-     * @param position the position in the queue where the key will be increased
-     * @param new_key the new key value for that position
+     * @param position the position in the queue that will be changed
+     * @param new_key the value that will be added
      */
-    void Increase_Key(int position, int new_key);
+    void Increase_Key(int position, T new_key);
 private:
 
     MaxHeap<T>* maxHeap = new MaxHeap<T>();
     std::list<T>* list = new std::list<T>;
 
 };
+
+
+
 
 #endif //SP24_SE_CSCI_C455_XAVBEAT03_HOMEWORK_ASSIGNMENT_4_PRIORITYQUEUE_H
