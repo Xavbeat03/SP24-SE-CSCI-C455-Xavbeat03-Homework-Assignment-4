@@ -3,11 +3,9 @@
 
 namespace {
     TEST(Max_Heapify, Test1_EmptyHeap){
-        int A[] = {1};
+        int A[] = {};
 
-        auto heap = new MaxHeap(A, 1);
-
-        heap->remove(0);
+        auto heap = new MaxHeap(A, 0);
 
         ASSERT_THROW(heap->Max_Heapify(0), std::out_of_range);
     }
@@ -17,6 +15,21 @@ namespace {
 
         auto heap = new MaxHeap(A, 1);
 
+        heap->Max_Heapify(0);
 
+        ASSERT_EQ("[1]", heap->toString());
+        ASSERT_EQ(1, heap->getSize());
+        ASSERT_EQ(1, heap->getHeap_Size());
+    }
+
+    TEST(Max_Heapify, Test1_NormalHeap){
+        int A[] = {1, 2, 3, 4, 5, };
+
+        auto heap = new MaxHeap(A, 5);
+
+        heap->Max_Heapify(0);
+
+        ASSERT_EQ("[3,2,1,4,5]", heap->toString());
+        ASSERT_EQ(5, heap->getSize());
     }
 }

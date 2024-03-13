@@ -15,8 +15,9 @@ namespace {
 
         auto heap = new MaxHeap(A, 4);
 
-        ASSERT_EQ(12, heap->retrieveAndRemoveRoot());
+        ASSERT_EQ(3, heap->retrieveAndRemoveRoot());
         ASSERT_EQ(3, heap->getSize());
+        ASSERT_EQ("[12,6,9]", heap->toString());
     }
 
     TEST(retrieveAndRemoveRoot, Test2_Heap){
@@ -24,7 +25,7 @@ namespace {
 
         auto heap = new MaxHeap(A, 6);
 
-        ASSERT_EQ(18, heap->retrieveAndRemoveRoot());
+        ASSERT_EQ(3, heap->retrieveAndRemoveRoot());
         ASSERT_EQ(5, heap->getSize());
     }
 

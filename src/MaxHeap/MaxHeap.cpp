@@ -1,6 +1,9 @@
 #include <iostream>
+#include <vector>
 
 #include "MaxHeap.h"
+
+
 class MaxHeap {
 public:
     /**
@@ -11,8 +14,9 @@ public:
     MaxHeap(int* a, int s){
         this->size = s;
         this->heap_size = s;
-        this->array = a;
-        Build_Max_Heap();
+        for(int i = 0; i < s; i ++){
+            array.push_back(a[i]);
+        }
     }
 
     ~MaxHeap()= default;
@@ -97,34 +101,14 @@ public:
      * @param i the value to be inserted
      */
     void insert(int i){
-        this->array[size] = i;
-        this->size++;
-        Build_Max_Heap();
-    }
-
-    /**
-     * Remove the value at index i
-     * @param i index the where value will be removed
-     * @throws out_of_range exception when index is less then 0 or greater than the size
-     */
-    void remove(int i){
-        if(this->size == 0){
-            throw std::out_of_range("Index is outside of heap size");
+        array.push_back(i);
+        size++;
+        int k = size-1;
+        while(k != 0 && getArrayValue(parent(k)) < i){
+            swap(this, k, parent(k));
+            k = parent(k);
         }
-        if (i < 0 && i > (this->size - 1)) {
-            throw std::out_of_range ("Index is outside of heap size");
-        }
-        int temp = i;
-        while(i < this->size){
-            if (this -> array[left(i)] >= this -> array[right(i)]){
-                this -> array[i] = this -> array[left(i)];
-                i = left(i);
-            } else {
-                this -> array[i] = this -> array[right(i)];
-                i = right(i);
-            }
-        }
-        this->size--;
+        this->heap_size++;
     }
 
     /**
@@ -135,7 +119,12 @@ public:
     int retrieveAndRemoveRoot(){
         if(this->size == 0) throw std::out_of_range("Size of heap is 0");
         int i = this->array[0];
-        remove(0);
+        int t = 0;
+        this->array[0] = this->getArrayValue(this->size-1);
+        Max_Heapify(0);
+        array.pop_back();
+        this->size--;
+        this->heap_size--;
         return i;
     }
 
@@ -158,7 +147,7 @@ public:
 private:
     int size;
     int heap_size;
-    int* array;
+    std::vector<int> array;
 
     static void swap(MaxHeap* m, int index1, int index2){
         int t = m->array[index1];
@@ -172,6 +161,13 @@ private:
 
     static int right(int i){
         return 2*(i+1);
+    }
+
+    static int parent(int i){
+        if (i % 2 == 0)  // right
+            return (i - 2) / 2;
+        else  // left
+            return (i - 1) / 2;
     }
 
     static std::string heap_to_String(MaxHeap* h){
@@ -191,8 +187,8 @@ private:
      * Gets the internal array of the datastructure
      * @return the internal integer array
      */
-    int* getArray(){
-        return this->array;
+    std::vector<int> getArray(){
+        return array;
     }
 
     /**
@@ -207,9 +203,13 @@ private:
     /**
      * Sets the array
      * @param s the new array
+     * @param n the new array size
      */
-    void setArray(int* s){
-        this->array = s;
+    void setArray(int* s, int n){
+        this->array.clear();
+        for(int i = 0; i < n; i ++){
+            array.push_back(s[i]);
+        }
     }
 
     /**
@@ -229,19 +229,6 @@ private:
     }
 };
 
-/**
-int main() {
-    int A[] = {58, 72, 19, 41, 33, 62, 84};
-
-    auto* heap = new MaxHeap(A, 7);
-
-    heap->Heapsort();
-
-    std::cout << heap->toString();
-
-    return 0;
-}
- **/
 
 
 
