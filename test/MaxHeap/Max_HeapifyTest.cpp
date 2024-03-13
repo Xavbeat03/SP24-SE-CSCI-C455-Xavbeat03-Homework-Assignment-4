@@ -19,7 +19,6 @@ namespace {
 
         ASSERT_EQ("[1]", heap->toString());
         ASSERT_EQ(1, heap->getSize());
-        ASSERT_EQ(1, heap->getHeap_Size());
     }
 
     TEST(Max_Heapify, Test1_NormalHeap){

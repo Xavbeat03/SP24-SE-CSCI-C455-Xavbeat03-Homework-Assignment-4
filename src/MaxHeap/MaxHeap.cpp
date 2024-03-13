@@ -38,14 +38,6 @@ public:
     }
 
     /**
-     * Gets the heap size
-     * @return the size of the heap
-     */
-    int getHeap_Size(){
-        return this->heap_size;
-    }
-
-    /**
      * Runs heap sort on the internal array
      * returning an array in ascending order
      */
@@ -197,6 +189,7 @@ private:
      * @return the value
      */
     int getArrayValue(int i){
+        if(size == 0) throw std::out_of_range ("Array is of size 0");
         return getArray()[i];
     }
 
@@ -226,6 +219,14 @@ private:
      */
     void setHeap_Size(int s){
         this->heap_size = s;
+    }
+
+    /**
+     * Gets the heap size
+     * @return the size of the heap
+     */
+    int getHeap_Size(){
+        return this->heap_size;
     }
 };
 
