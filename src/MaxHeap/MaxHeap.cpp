@@ -3,7 +3,9 @@
 
 #include "MaxHeap.h"
 
-
+template <typename T>
+//TODO Make MaxHeap Generic
+//TODO Rewrite .h file and adjust .cpp file
 class MaxHeap {
 public:
     /**
@@ -11,7 +13,7 @@ public:
      * @param a array that's passed in to be created
      * @param s size of the array
      */
-    MaxHeap(int* a, int s){
+    MaxHeap(T* a, int s){
         this->size = s;
         this->heap_size = s;
         for(int i = 0; i < s; i ++){
@@ -66,6 +68,14 @@ public:
     }
 
     /**
+     * Returns the Highest value in the array
+     * @return the Highest value in the array
+     */
+    T peekAtRoot(){
+        return array.at(0);
+    }
+
+    /**
      * Performs Max Heapify starting at the index i
      * @param i the index to start performing max heapify at
      */
@@ -97,7 +107,7 @@ public:
      * inserts a value into the max heap
      * @param i the value to be inserted
      */
-    void insert(int i){
+    void insert(T i){
         array.push_back(i);
         size++;
         int k = size-1;
@@ -113,9 +123,9 @@ public:
      * @return the value at root
      * @throws out_of_range
      */
-    int retrieveAndRemoveRoot(){
+    T retrieveAndRemoveRoot(){
         if(this->size == 0) throw std::out_of_range("Size of heap is 0");
-        int i = this->array[0];
+        T i = this->array[0];
         int t = 0;
         this->array[0] = this->getArrayValue(this->size-1);
         Max_Heapify(0);
@@ -130,7 +140,7 @@ public:
      * @param i the value to find
      * @return the index of the value
      */
-    int find(int i){
+    int find(T i){
         int temp = 0;
 
         while (getArrayValue(temp) != i && temp < this->size){
@@ -140,6 +150,25 @@ public:
         if(temp==this->size) return -1;
         else return temp;
     }
+    /**
+     * Returns the value in the heap array that was at index i
+     * @param i the index the value exists in
+     * @return the value
+     */
+    int valueAt(int i){
+        return getArrayValue(i);
+    }
+
+    /**
+     * TODO Write tests
+     * Removes the value at index i and inserts newval into the heap
+     * @param i the index being removed
+     * @param newval the value being inserted into the heap
+     */
+    void replaceAt(int i, T newval){
+        remove(i);
+        insert(newval);
+    }
 
 private:
     int size;
@@ -147,7 +176,7 @@ private:
     std::vector<int> array;
 
     static void swap(MaxHeap* m, int index1, int index2){
-        int t = m->array[index1];
+        T t = m->array[index1];
         m->array[index1] = m->array[index2];
         m->array[index2] = t;
     }
@@ -158,6 +187,20 @@ private:
 
     static int right(int i){
         return 2*(i+1);
+    }
+
+    /**
+     * Removes the item at index i
+     * @param i index where an item is being removed
+     */
+     void remove(int i){
+        if(this->size == 0) throw std::out_of_range("Size of heap is 0");
+        int t = i;
+        this->array[i] = this->getArrayValue(this->size-1);
+        Max_Heapify(i);
+        array.pop_back();
+        this->size--;
+        this->heap_size--;
     }
 
     static int parent(int i){
@@ -184,7 +227,7 @@ private:
      * Gets the internal array of the datastructure
      * @return the internal integer array
      */
-    std::vector<int> getArray(){
+    std::vector<T> getArray(){
         return array;
     }
 
@@ -193,7 +236,7 @@ private:
      * @param i the index value to get from
      * @return the value
      */
-    int getArrayValue(int i){
+    T getArrayValue(int i){
         if(size == 0) throw std::out_of_range ("Array is of size 0");
         return getArray()[i];
     }
@@ -203,7 +246,7 @@ private:
      * @param s the new array
      * @param n the new array size
      */
-    void setArray(int* s, int n){
+    void setArray(T* s, int n){
         this->array.clear();
         for(int i = 0; i < n; i ++){
             array.push_back(s[i]);

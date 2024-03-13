@@ -60,6 +60,8 @@ public:
         altitude = std::stoi(vector[12]);
     }
 
+    AirportRecord(std::list<AirportRecord>::iterator iterator);
+
     ~AirportRecord()= default;
 
     [[nodiscard]] const std::string &getCode() const {
@@ -133,6 +135,10 @@ public:
         return a.altitude < b.altitude;
     }
 
+    bool operator==(const AirportRecord &rhs) const;
+
+    bool operator!=(const AirportRecord &rhs) const;
+
 private:
     std::string code;
     std::string name;
@@ -147,6 +153,10 @@ private:
     int longitude_seconds;
     std::string longitude_direction;
     int altitude;
+public:
+    void setAltitude(int altitude);
+
+private:
 
     // function to split string into substrings on the
     // basis of delimiter and return the substrings
@@ -190,6 +200,15 @@ private:
         // return the splitted strings
         return substr_list;
     }
+
+public:
+    bool operator<(const AirportRecord &rhs) const;
+
+    bool operator>(const AirportRecord &rhs) const;
+
+    bool operator<=(const AirportRecord &rhs) const;
+
+    bool operator>=(const AirportRecord &rhs) const;
 
 };
 
