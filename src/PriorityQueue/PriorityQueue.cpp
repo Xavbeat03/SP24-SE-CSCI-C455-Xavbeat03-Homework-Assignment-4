@@ -1,21 +1,19 @@
 #include "PriorityQueue.h"
 
-template<typename T>
-void PriorityQueue<T>::Insert(std::tuple<int, T> x) {
+
+void PriorityQueue::Insert(std::tuple<int, AirportRecord> x) {
+    map.insert(x);
 
 }
 
-template<typename T>
-std::tuple<int, T> PriorityQueue<T>::Maximum() {
-    return std::tuple<int, T>();
+std::tuple<int, AirportRecord> PriorityQueue::Maximum() {
+    return std::tuple<int, AirportRecord>();
 }
 
-template<typename T>
-std::tuple<int, T> PriorityQueue<T>::Extract_Max() {
-    return std::tuple<int, T>();
+std::tuple<int, AirportRecord> PriorityQueue::Extract_Max() {
+    return std::tuple<int, AirportRecord>();
 }
 
-template<typename T>
-void PriorityQueue<T>::Increase_Key(int position, int new_key) {
+void PriorityQueue::Increase_Key(int position, int new_key) {
 
 }

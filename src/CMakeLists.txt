@@ -6,4 +6,6 @@ add_executable(
         MaxHeap/MaxHeap.h
         PriorityQueue/PriorityQueue.cpp
         PriorityQueue/PriorityQueue.h
+        AirportRecord/AirportRecord.cpp
+        AirportRecord/AirportRecord.h
 )
