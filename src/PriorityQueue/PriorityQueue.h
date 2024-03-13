@@ -36,6 +36,14 @@ public:
      * @param new_key the value that will be added
      */
     void Increase_Key(int position, T new_key);
+
+    /**
+     * Returns the size of the queue
+     * @return the size of the queue
+     */
+    int getSize(){
+        return maxHeap->getSize();
+    }
 private:
 
     MaxHeap<T>* maxHeap = new MaxHeap<T>();
