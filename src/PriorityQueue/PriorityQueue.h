@@ -39,7 +39,6 @@ public:
 private:
 
     MaxHeap<T>* maxHeap = new MaxHeap<T>();
-    std::list<T>* list = new std::list<T>;
 
 };
 

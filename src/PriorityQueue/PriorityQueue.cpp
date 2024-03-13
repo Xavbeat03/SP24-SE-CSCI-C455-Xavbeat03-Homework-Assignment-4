@@ -12,6 +12,7 @@ void PriorityQueue<T>::Insert(T x) {
 
 template<typename T>
 T PriorityQueue<T>::Extract_Max() {
+    if(this->maxHeap->getSize() == 0) throw std::out_of_range("Cannot extract nonexistent value.");
     return maxHeap->retrieveAndRemoveRoot();
 }
 
