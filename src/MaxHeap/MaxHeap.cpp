@@ -69,6 +69,9 @@ public:
      * @param i the index to start performing max heapify at
      */
     void Max_Heapify(int i){
+        if(this->size == 0) {
+            throw std::out_of_range ("Index is outside of heap size");
+        }
         int l = left(i);
         int r = right(i);
         int largest;
@@ -102,10 +105,15 @@ public:
     /**
      * Remove the value at index i
      * @param i index the where value will be removed
-     * @return true if value was removed, false otherwise
+     * @throws out_of_range exception when index is less then 0 or greater than the size
      */
-    bool remove(int i){
-        if (i < 0 && i > this->size) return false;
+    void remove(int i){
+        if(this->size == 0){
+            throw std::out_of_range("Index is outside of heap size");
+        }
+        if (i < 0 && i > (this->size - 1)) {
+            throw std::out_of_range ("Index is outside of heap size");
+        }
         int temp = i;
         while(i < this->size){
             if (this -> array[left(i)] >= this -> array[right(i)]){
@@ -117,14 +125,15 @@ public:
             }
         }
         this->size--;
-        return true;
     }
 
     /**
      * Removes and returns the value at the root
      * @return the value at root
+     * @throws out_of_range
      */
     int retrieveAndRemoveRoot(){
+        if(this->size == 0) throw std::out_of_range("Size of heap is 0");
         int i = this->array[0];
         remove(0);
         return i;
