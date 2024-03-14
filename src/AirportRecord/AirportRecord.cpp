@@ -5,10 +5,11 @@
 #include <fstream>
 #include <iostream>
 #include <list>
+#include <vector>
 #include "AirportRecord.h"
 
 
-std::list<AirportRecord> AirportRecord::loadFromFile(std::string fileName) {
+std::list<AirportRecord> AirportRecord::loadFromFile(const std::string& fileName) {
     std::string line;
     std::ifstream file (fileName);
     if(file.is_open())
@@ -28,6 +29,24 @@ std::list<AirportRecord> AirportRecord::loadFromFile(std::string fileName) {
         return list;
     }
     else std::cout << "Unable to open file";
+
+    return {};
+}
+
+AirportRecord::AirportRecord(std::list<AirportRecord>::iterator iterator) {
+    code = iterator->code;
+    name = iterator->name;
+    city = iterator->city;
+    country = iterator->country;
+    latitude_degree = iterator->latitude_degree;
+    latitude_minutes = iterator->latitude_minutes;
+    latitude_seconds = iterator->latitude_seconds;
+    direction = iterator->direction;
+    longitude_degree = iterator->longitude_degree;
+    longitude_minutes = iterator->longitude_minutes;
+    longitude_seconds = iterator->longitude_seconds;
+    longitude_degree = iterator->longitude_degree;
+    altitude = iterator->altitude;
 }
 
 bool AirportRecord::operator==(const AirportRecord &rhs) const {
@@ -50,26 +69,6 @@ bool AirportRecord::operator!=(const AirportRecord &rhs) const {
     return !(rhs == *this);
 }
 
-AirportRecord::AirportRecord(std::list<AirportRecord>::iterator iterator) {
-    code = iterator->code;
-    name = iterator->name;
-    city = iterator->city;
-    country = iterator->country;
-    latitude_degree = iterator->latitude_degree;
-    latitude_minutes = iterator->latitude_minutes;
-    latitude_seconds = iterator->latitude_seconds;
-    direction = iterator->direction;
-    longitude_degree = iterator->longitude_degree;
-    longitude_minutes = iterator->longitude_minutes;
-    longitude_seconds = iterator->longitude_seconds;
-    longitude_degree = iterator->longitude_degree;
-    altitude = iterator->altitude;
-}
-
-void AirportRecord::setAltitude(int altitude) {
-    AirportRecord::altitude = altitude;
-}
-
 bool AirportRecord::operator<(const AirportRecord &rhs) const {
     return altitude < rhs.altitude;
 }
@@ -85,3 +84,64 @@ bool AirportRecord::operator<=(const AirportRecord &rhs) const {
 bool AirportRecord::operator>=(const AirportRecord &rhs) const {
     return !(*this < rhs);
 }
+
+void AirportRecord::setAltitude(int *altitude) {
+    AirportRecord::altitude = altitude;
+}
+
+std::string *AirportRecord::getCode() const {
+    return code;
+}
+
+std::string *AirportRecord::getName() const {
+    return name;
+}
+
+std::string *AirportRecord::getCity() const {
+    return city;
+}
+
+std::string *AirportRecord::getCountry() const {
+    return country;
+}
+
+int *AirportRecord::getLatitudeDegree() const {
+    return latitude_degree;
+}
+
+int *AirportRecord::getLatitudeMinutes() const {
+    return latitude_minutes;
+}
+
+int *AirportRecord::getLatitudeSeconds() const {
+    return latitude_seconds;
+}
+
+std::string *AirportRecord::getDirection() const {
+    return direction;
+}
+
+int *AirportRecord::getLongitudeDegree() const {
+    return longitude_degree;
+}
+
+int *AirportRecord::getLongitudeMinutes() const {
+    return longitude_minutes;
+}
+
+int *AirportRecord::getLongitudeSeconds() const {
+    return longitude_seconds;
+}
+
+std::string *AirportRecord::getLongitudeDirection() const {
+    return longitude_direction;
+}
+
+int *AirportRecord::getAltitude() const {
+    return altitude;
+}
+
+
+
+
+

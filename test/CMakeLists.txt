@@ -4,6 +4,8 @@ add_executable(
         unit_tests
         ${ALL_TESTS}
         MaxHeap/ReplaceAtTest.cpp
+        AirportRecord/getters.cpp
+        AirportRecord/conditionals.cpp
 )
 
 target_link_libraries(

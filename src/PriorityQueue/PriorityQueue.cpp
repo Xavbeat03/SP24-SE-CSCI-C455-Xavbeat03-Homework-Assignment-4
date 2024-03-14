@@ -18,9 +18,16 @@ T PriorityQueue<T>::Extract_Max() {
 
 template<typename T>
 void PriorityQueue<T>::Increase_Key(int position, T new_key) {
-    if (maxHeap->valueAt(position) < new_key){
-        return;
-    } else {
-        maxHeap->replaceAt(position, new_key);
+    if(this->maxHeap->getSize() == 0)
+        throw std::out_of_range ("Position is outside of queue");
+    else if(position >= this->maxHeap->getSize())
+        throw std::out_of_range ("Position is outside of queue");
+    else if(position < 0)
+        throw std::out_of_range ("Position is outside of queue");
+    else {
+        if (maxHeap->valueAt(position) < new_key) {
+            maxHeap->replaceAt(position, new_key);
+        }
     }
 }
+

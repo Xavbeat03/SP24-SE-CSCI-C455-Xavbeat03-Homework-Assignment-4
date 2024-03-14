@@ -101,7 +101,7 @@ class MaxHeap{
 private:
     int size{};
     int heap_size{};
-    std::vector<int> vector;
+    std::vector<T> vector;
 
     static void swap(MaxHeap* m, int index1, int index2){
         T t = m->vector[index1];
