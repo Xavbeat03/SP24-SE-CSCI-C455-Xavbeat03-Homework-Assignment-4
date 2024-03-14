@@ -1,12 +1,12 @@
 #include <gtest/gtest.h>
 #include "../../src/MaxHeap/MaxHeap.cpp"
 
-
+typedef MaxHeap<int> Heap;
 namespace {
     TEST(Insert, TEST1_EmptyHeap){
         int A[] = {};
 
-        auto heap = new MaxHeap(A, 0);
+        auto heap = new Heap(A, 0);
 
         heap->insert(1);
 
@@ -16,7 +16,7 @@ namespace {
 
     TEST(Insert, TEST1_SingleHeap){
         int A[] = {1};
-        auto heap = new MaxHeap(A, 1);
+        auto heap = new Heap(A, 1);
 
         heap->insert(1);
 
@@ -26,7 +26,7 @@ namespace {
 
     TEST(Insert, TEST2_SingleHeap){
         int A[] = {1};
-        auto heap = new MaxHeap(A, 1);
+        auto heap = new Heap(A, 1);
 
         heap->insert(2);
 
@@ -36,7 +36,7 @@ namespace {
 
     TEST(Insert, TEST3_SingleHeap){
         int A[] = {1};
-        auto heap = new MaxHeap(A, 1);
+        auto heap = new Heap(A, 1);
 
         heap->insert(0);
 
@@ -46,7 +46,7 @@ namespace {
 
     TEST(Insert, TEST1_BigHeap){
         int A[] = {1, 2, 3, 4, 5, 6, 7, 8};
-        auto heap = new MaxHeap(A, 8);
+        auto heap = new Heap(A, 8);
 
         heap->insert(5);
 

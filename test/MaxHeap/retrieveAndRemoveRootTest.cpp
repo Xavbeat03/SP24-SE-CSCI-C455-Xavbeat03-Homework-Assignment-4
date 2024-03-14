@@ -1,11 +1,13 @@
 #include <gtest/gtest.h>
 #include "../../src/MaxHeap/MaxHeap.cpp"
 
+typedef MaxHeap<int> Heap;
+
 namespace {
     TEST(retrieveAndRemoveRoot, Test1_EmptyHeap){
         int A[] = {};
 
-        auto heap = new MaxHeap(A, 0);
+        auto heap = new Heap(A, 0);
 
         ASSERT_THROW(heap->retrieveAndRemoveRoot(), std::out_of_range);
     }
@@ -13,7 +15,7 @@ namespace {
     TEST(retrieveAndRemoveRoot, Test1_Heap){
         int A[] = {3, 6, 9, 12};
 
-        auto heap = new MaxHeap(A, 4);
+        auto heap = new Heap(A, 4);
 
         ASSERT_EQ(3, heap->retrieveAndRemoveRoot());
         ASSERT_EQ(3, heap->getSize());
@@ -23,7 +25,7 @@ namespace {
     TEST(retrieveAndRemoveRoot, Test2_Heap){
         int A[] = {3, 6, 9, 12, 15, 18};
 
-        auto heap = new MaxHeap(A, 6);
+        auto heap = new Heap(A, 6);
 
         ASSERT_EQ(3, heap->retrieveAndRemoveRoot());
         ASSERT_EQ(5, heap->getSize());
