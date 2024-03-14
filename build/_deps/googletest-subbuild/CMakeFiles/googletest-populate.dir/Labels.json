@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/xavier/CLionProjects/SP24-SE-CSCI-C455-Xavbeat03-Homework-Assignment-4/build/_deps/googletest-subbuild/CMakeFiles/googletest-populate"
+		},
+		{
+			"file" : "/home/xavier/CLionProjects/SP24-SE-CSCI-C455-Xavbeat03-Homework-Assignment-4/build/_deps/googletest-subbuild/CMakeFiles/googletest-populate.rule"
+		},
+		{
+			"file" : "/home/xavier/CLionProjects/SP24-SE-CSCI-C455-Xavbeat03-Homework-Assignment-4/build/_deps/googletest-subbuild/CMakeFiles/googletest-populate-complete.rule"
+		},
+		{
+			"file" : "/home/xavier/CLionProjects/SP24-SE-CSCI-C455-Xavbeat03-Homework-Assignment-4/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-build.rule"
+		},
+		{
+			"file" : "/home/xavier/CLionProjects/SP24-SE-CSCI-C455-Xavbeat03-Homework-Assignment-4/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-configure.rule"
+		},
+		{
+			"file" : "/home/xavier/CLionProjects/SP24-SE-CSCI-C455-Xavbeat03-Homework-Assignment-4/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-download.rule"
+		},
+		{
+			"file" : "/home/xavier/CLionProjects/SP24-SE-CSCI-C455-Xavbeat03-Homework-Assignment-4/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-install.rule"
+		},
+		{
+			"file" : "/home/xavier/CLionProjects/SP24-SE-CSCI-C455-Xavbeat03-Homework-Assignment-4/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-mkdir.rule"
+		},
+		{
+			"file" : "/home/xavier/CLionProjects/SP24-SE-CSCI-C455-Xavbeat03-Homework-Assignment-4/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-patch.rule"
+		},
+		{
+			"file" : "/home/xavier/CLionProjects/SP24-SE-CSCI-C455-Xavbeat03-Homework-Assignment-4/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-test.rule"
+		},
+		{
+			"file" : "/home/xavier/CLionProjects/SP24-SE-CSCI-C455-Xavbeat03-Homework-Assignment-4/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"googletest-populate"
+		],
+		"name" : "googletest-populate"
+	}
+}
